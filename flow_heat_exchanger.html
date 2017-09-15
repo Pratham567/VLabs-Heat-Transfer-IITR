@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>IIT Roorkee Virtual Labs</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="Vlabs.css" type= "text/css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="Vlabs.js"></script>
+</head>
+
+
+<body background=b1.jpg>
+<div class="container-fluid" >
+    <div class="row">
+        <div class="col-md-8" style=";"><a href="https://www.iitr.ac.in/departments/CH/pages/People+Faculty.html">
+            <h1 ><small>DEPARTMENT OF CHEMICAL ENGINEERING, IIT ROORKEE</small></h1>
+        </a></div>
+        <!-- color of h1 . Not effective-->
+        <div class="col-md-3 hidden-xs hidden-sm" style="float:right;" ><a href="https://www.iitr.ac.in"><img src="logo1.gif" width="80px" height="80px" style="float:right;margin-right:50px" ></a></div>
+    </div></div>
+
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <a class="navbar-brand" href="index1.html">Virtual labs </a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+
+            <ul class="nav navbar-nav">
+                <li ><a href="index1.html">Home</a></li>
+                <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Page 1 <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Page 1-1</a></li>
+                        <li><a href="#">Page 1-2</a></li>
+                        <li><a href="#">Page 1-3</a></li>
+                    </ul>
+                </li>
+                <li><a href="flow_heat_exchanger_exp.html">Perform Experiment</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#"></span> Feedback</a></li>
+                <li><a href="#"></span>Contact Us</a></li>
+                <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+<div class="container-fluid">
+    <div class="row">
+
+        <p ><h2 style = "color:#a58eff;" class = "center"><strong>DOUBLE PIPE HEAT EXCHANGER WITH PARALLEL/COUNTER FLOW CONFIGURATIONS</strong></h2></p>
+
+        <h3 style = "margin-left : 20px;"> AIM </h3>
+        <p>
+
+            I. To calculate rate of heat transfer, log mean temperature difference (LMTD) and overall heat transfer coefficient for parallel and counter flow heat exchangers.
+            <br/>
+            II. To compare the performance of parallel and counter flow heat exchanger using effectiveness-NTU method.
+            <br/>
+            III.Compute the individual film coefficients.
+        </p>
+
+        <h3 style = "margin-left : 20px;"> THEORY AND EXPERIMENTAL SETUP </h3>
+        <p>
+
+            Heat exchanger is a device used to transfer heat from one fluid to another fluid which are at different temperatures.
+            It is used in almost all industries. Simplest example of heat exchanger is the double pipe heat exchanger.
+            Double pipe heat exchanger consists of two cocentric pipes in pipes, in which one fluid flows through the inner pipe and the other fluid flows through the annulus.
+            Heat transfer takes place across the wall of inner tube.
+            The experiment is conducted by keeping the flow rates same (approximately) while running the apparatus as parallel flow (when fluid moves in the same direction) or as counter flow (when fluids move in opposite directions).
+            Temperatures are measured with the help of thermocouples. Readings are recorded when steady state is reached.
+            The outer tube is provided with adequate insulation to check heat loss.
+            The present experimental setup for parallel/counter flow heat exchanger consist of following components:
+
+            <ol>
+        <li>Main Frame</li>
+        <li>Heat exchanger</li>
+        <li>Temperature Indicator</li>
+        <li>Hot water generator</li>
+        <li>Rotameter for hot and cold water flow rate measurement.</li>
+        <li>Temperature Sensors</li>
+             </ol>
+
+            Hot fluid is hot water which is heated with the help of heater fitted in the tank and circulated with the help of pump.
+            Cold water flows in the annular tube.
+            Different valves are provided in the apparatus to regulate the flow rate of liquid and make the system to run in parallel or counter flow mode.
+            The schematic diagram of the double pipe heat exchanger experiment is given in Figure 1 below:
+        </p>
+
+        <div class="row" style="align: center;">
+            <img class = "img-responsive shadow schematic center-block" align="middle" src="shell_and_tube/schematic.png">
+        </div>
+
+
+        <h3 style = "margin-left : 20px;"> SPECIFICATIONS </h3>
+        <p>
+
+            <div class = col-md-4><p>Inner tube material : </p></div>                       <p>Copper</p><br>
+            <div class = col-md-4><p>Inner diameter of inner tube, d<sub>i</sub> : </p></div>         <p>9.5 mm</p><br>
+            <div class = col-md-4><p>Outer diameter of inner tube, d<sub>o</sub> : </p></div>         <p>12.7 mm</p><br>
+            <div class = col-md-4><p>Outer tube material : </p></div>                       <p>G.I. (GALVANIZED IRON)</p><br>
+            <div class = col-md-4><p>Inner diameter of outer tube, D<sub>i</sub> : </p></div>         <p>28 mm</p><br>
+            <div class = col-md-4><p>Outer diameter of outer tube, D<sub>o</sub> : </p></div>         <p>34 mm</p><br>
+            <div class = col-md-4><p>Length of tube : </p></div>                            <p>1.6 m</p><br>
+            <div class = col-md-4><p>Heater power : </p></div>                              <p>3 kW</p><br>
+            <div class = col-md-4><p>Thermostat : </p></div>                                <p>1 (range 10&#8451; -100&#8451;)</p><br>
+            <div class = col-md-4><p>MCB : </p></div>                                       <p>16 Amp Heater, 6 Amp for Pump</p><br>
+            <div class = col-md-4><p>Type of Pump : </p></div>                              <p>magnetic drive pump, power 1/4 HP</p>
+
+        </p>
+
+
+
+        </br>
+
+        <h3 style = "margin-left : 20px;"> EXPERIMENTAL PROCEDURE </h3>
+        <p>
+
+            I.Fill water bath 3/4 with clean water and switch ON pump to circulate water. Once water
+            flow is continuous, switch ON the heaters.
+            <br/>
+            II.Adjust the required temperature of hot water using Digital Temperature Controller
+            (DTC) (i.e., around 55&#8451; to 60&#8451;) in the water bath and maintain the hot water
+            temperature at a constant value throughout the experiment, either at 55&#8451; or 60&#8451;.
+            <br/>
+            III.For parallel flow, the flow of hot and cold water should be on the same end of the heat
+            exchanger and for counter flow, the flow of hot and cold water should be from the
+            opposite ends. Make this arrangement as per the instructions below:
+                <p><h4 style = "margin-left : 20px;"> A. FOR PARALLEL FLOW : </h4>
+                   <p><ol class = "nested_list"> <li> Open the valves V<sub>1</sub>, V<sub>2</sub>, V<sub>5</sub> and V<sub>6</sub> and close the valves V<sub>4</sub> and V<sub>3</sub>.</li>
+        <li> Once the temperature of the hot water has reached the required value, start the
+                       flow of water through both hot and cold water side and maintain the constant
+                       flow rate of hot water in the annulus and cold water flow rate in the inside pipe
+                       may vary.</li>
+        <li> Wait for the temperature to stabilize on the indicator.</li>
+        <li> Record the flow rate of hot and cold water from the Rotameter attached to the
+                       instrument.</li>
+        <li> As the temperature gets steady, record the temperature for different four
+            channels, i.e. T<sub>1</sub>, T<sub>2</sub>, T<sub>3</sub> and T<sub>4</sub> using switch on the panel.</li>
+        <li> Take 6-7 readings for different cold water flow rates at constant hot water flow
+                       rare in the annulus.</li>
+    </ol></p>
+                    <h4 style = "margin-left : 20px;"> B. FOR COUNTER-CURRENT FLOW : </h4>
+        <p> <ol class = "nested_list">
+        <li> Open the valves V<sub>1</sub>, V<sub>4</sub>, V<sub>3</sub> and V<sub>6</sub> and close the valves V<sub>2</sub> and V<sub>5</sub>.</li>
+        <li> Once the temperature of the hot water has reached the required value, start the
+            flow of water through both hot and cold water side and maintain the constant
+            flow rate of hot water in the annulus and cold water flow rate in the inside pipe
+            may vary.</li>
+        <li> Wait for the temperature to stabilize on the indicator.</li>
+        <li> Record the flow rate of hot and cold water from the rotameter attached to the
+            instrument.</li>
+        <li>. As the temperature gets steady, record the temperature for different four
+            channels, i.e. T<sub>1</sub>, T<sub>2</sub>, T<sub>6</sub> and T<sub>5</sub> using switch on the panel.</li>
+        <li> Take 6-7 readings for different cold water flow rates at constant hot water flow
+            rare in the annulus.</li>
+    </ol></p>
+                </p>
+
+
+        </p>
+
+        <h3 style = "margin-left : 20px;"> OBSERVATIONS AND CALCULATIONS </h3>
+        <h4 style = "margin-left : 40px;"> OBSERVATION TABLE </h4>
+        <h4 style = "margin-left : 60px;"> I. Parallel flow </h4>
+        <div class="row" style="align: center;">
+            <img class = "img-responsive shadow schematic center-block" align="middle" src="flow_heat_exchanger/observation2.png">
+        </div>
+
+        <h4 style = "margin-left : 60px;"> II. Counter flow </h4>
+
+        <div class="row" style="align: center;">
+            <img class = "img-responsive shadow schematic center-block" align="middle" src="flow_heat_exchanger/observation2.png">
+        </div>
+
+        <h4 style = "margin-left : 40px;"> OBSERVATION TABLE </h4>
+
+        </br><p><span class="glyphicon glyphicon-share-alt"></span> Perform calculations for all sets of readings in the report. Show detailed calculations of one
+        set of readings. Following procedure should be followed for calculations.</p>
+        </br>
+        <div class="row" style="align: center;">
+            <img class = "img-responsive shadow schematic center-block" style=";" align="middle" src="flow_heat_exchanger/calculations1.png">
+        </div>
+
+        <div class="row" style="align: center;">
+            <img class = "img-responsive shadow schematic center-block" style=";" align="middle" src="flow_heat_exchanger/calculations2.png">
+        </div>
+        </br>
+
+        <p><span class="glyphicon glyphicon-arrow-right"></span> Use graph to find the value of heat transfer factor.</p>
+        <div class="row" style="align: center;">
+            <img class = "img-responsive shadow schematic center-block" style="" align="middle" src="flow_heat_exchanger/graph.png">
+        </div>
+        </br>
+        <p><span class="glyphicon glyphicon-arrow-right"></span> Now find out the following</p>
+        <div class="row" style="align: center;">
+            <img class = "img-responsive shadow schematic center-block" style=";" align="middle" src="flow_heat_exchanger/calculations3.png">
+        </div>
+        </br>
+        <div class="row" style="align: center;">
+            <img class = "img-responsive shadow schematic center-block" style=";" align="middle" src="flow_heat_exchanger/calculations3.png">
+        </div>
+         </br>
+
+        <h3 style = "margin-left : 20px;"> RESULTS AND DISCUSSIONS </h3>
+        <p>
+
+            I.   Make a plot of U, U<sub>th</sub> ,NTU against Re of inside fluid for both parallel and counter flow
+            arrangement and give a physical interpretation of obtained results..</br>
+            II.  Report and discuss the findings for &#949; and NTU values obtained in the present experiment.
+        </p>
+
+        <h3 style = "margin-left : 20px;"> PRECAUTIONS </h3>
+        <p>
+
+            I. Do not put on heater unless water flow is continuous.</br>
+            II. Once the flow is fixed, do not change it until note down the readings for that flow.</br>
+            III. Thermocouple should be kept in pockets.</br>
+            IV. Once the experiment is completed, drain out the water from both the tubes.</br>
+        </p>
+
+        <h3 style = "margin-left : 20px;"> REFERENCES </h3>
+        <p>
+
+            I. Coulson, J.M., Richardson, J.F., "Coulson & Richardson's Chemical Engineering" Volume 6, 6<sup>th</sup> ed., Asian Books ltd., ND, 1996, Page 655-668.<br>
+            II. Holman, J.P., "Heat transfer", 9<sup>th</sup> Edition, McGraw Hill, NY, 2008, Page 525-526, 528-531.<br>
+            III. Kern, D. Q., "Process Heat Transfer"  8<sup>th</sup> ed., McGraw Hill,1997, Page 102-126.<br>
+            IV. Perry's Chemical Engineers' Handbook, 7<sup>th</sup> ed., 1997, Page 11-46 11-47.
+        </p>
+
+
+    </div>
+</div>
+</body>
+
+
+</html>
+

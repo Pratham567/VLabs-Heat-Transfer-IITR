@@ -10,7 +10,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="Vlabs.js"></script>
-    <script src="shell_and_tube.js"></script>
+    <script src="flow_heat_exchanger.js"></script>
     <style>
         input {
             size: 20px;}
@@ -66,12 +66,12 @@
 <div class="container-fluid">
     <br class="row">
 
-        <p ><h2 style = "color:#a58eff;" class = "center"><strong>SHELL AND TUBE HEAT EXPERIMENT</strong></h2></p>
+    <p ><h2 style = "color:#a58eff;" class = "center"><strong>DOUBLE PIPE HET EXCHANGER WITH PARALLEL/COUNTER FLOW CONFIGURATIONS</strong></h2></p>
 
-        <h4 style = "margin-left : 20px;"> PROPERTIES OF FLUID </h4>
-        <p>
+    <h4 style = "margin-left : 20px;"> PROPERTIES OF FLUID </h4>
+    <p>
 
-    <div class = col-md-6> I.  Specific heat of cold water, c<sub>pc</sub><small> (J/kg.K)</small>  = </div><div class = col-md-6><span><input type="number" class="form-control" id="sh_cold" value="1.00" style="font-size:18px; width: 150px; display:inline;"></span></div></br></br>
+    <div class = col-md-6> I.  Specific heat of cold water, c<sub>pc</sub><small> (J/kg.K)</small>  = </div><div class = col-md-6><span><input type="number" onchange="calculations()"  class="form-control" id="sh_cold" value="1.00" style="font-size:18px; width: 150px; display:inline;"></span></div></br></br>
 
     <div class = col-md-6>II. Specific heat of hot water, c<sub>ph</sub><small> (J/kg.K)</small>&nbsp; = </div><div class = col-md-6><span><input type="number" class="form-control" id="sh_hot" value="1.00" style="font-size:18px; width: 150px; display:inline;"></span></div>      </br></br>
 
@@ -84,10 +84,9 @@
     <div class = col-md-6>VI. Thermal Conductivity  &emsp; &emsp; &emsp; &emsp; &emsp;  = </div><div class = col-md-6><span><input type="number" class="form-control" id="thermal_conductivity" value="1.00" style="font-size:18px; width: 150px; display:inline;"></span></div>      </br><br/>
 
 
-
     <p style="margin-left:40px;"> <button class="btn" type="button" onclick="properties()">Submit Properties</button></p><br>
 
-        <h4 style = "margin-left : 20px;"> INPUT VALUES </h4>
+    <h4 style = "margin-left : 20px;"> INPUT VALUES </h4>
 
     <div class = col-md-6><p><span class="glyphicon glyphicon-share-alt"></span> Flow Rate Cold (LPH) : </p></div><div class = col-md-3><span><input type="number" class="form-control" id="flow_rate_cold" value="1.00" style="font-size:18px; width: 150px; display:inline;"></span></div></br></br>
 
@@ -101,8 +100,8 @@
 
     <div class = col-md-6><p><span class="glyphicon glyphicon-share-alt"></span> Outlet Temperature (Cold) : </p></div><div class = col-md-3><span><input type="number" class="form-control" id="outlet_temp_cold" value="1.00" style="font-size:18px; width: 150px; display:inline;"></span></div></p></br></br>
 
-    <p style="margin-left:40px;"> <button class="btn" type="button" onclick="input_values()">Submit Values</button></p>
-    <p style="margin-left:40px;"> <button class="btn" type="button" onclick="calculations()">Calculate</button></p><br>
+    <p style="margin-left:40px;"> <button class="btn" type="button" onclick="input_values() calculations()">Submit Values and Calculate</button></p>
+
 
     <!-- <p id="velocity_cold2"></p> -->
 
@@ -115,51 +114,55 @@
 
     <div class = col-md-6><p><span class="glyphicon glyphicon-share-alt"></span> Velocity of cold water (m/s)                                           : </p></div><div class = col-md-3><span><input type="number" class="form-control" id="velocity_cold"       value="1.00" style="font-size:18px; width: 150px; display:inline;"></span></div></br></br>
 
+    <div class = col-md-6><p><span class="glyphicon glyphicon-share-alt"></span> Velocity of hot water in annulus (m/s)                                           : </p></div><div class = col-md-3><span><input type="number" class="form-control" id="velocity_hot"       value="1.00" style="font-size:18px; width: 150px; display:inline;"></span></div></br></br>
+
     <div class = col-md-6><p><span class="glyphicon glyphicon-share-alt"></span> Mass flow rate of hot water (kg per sec)                      : </p></div><div class = col-md-3><span><input type="number" class="form-control" id="mass_rate_hot"        value="1.00" style="font-size:18px; width: 150px; display:inline;"></span></div></br></br>
 
     <div class = col-md-6><p><span class="glyphicon glyphicon-share-alt"></span> Heat transferred from hot water (Q<sub>h</sub>)(W)                     : </p></div><div class = col-md-3><span><input type="number" class="form-control" id="heat_transfer_from_hot" value="1.00" style="font-size:18px; width: 150px; display:inline;"></span></div></p></br></br>
 
-    <!--<div> specific heat = <script>sh_hot</script><br> mass hot = <script>mass_rate_hot</script><br> <script>inlet_temp_hot </script><br> <script>outlet_temp_hot</script><br> </div>-->
-
-
-
     <div class = col-md-6><p><span class="glyphicon glyphicon-share-alt"></span> Mass flow rate of cold water (kg per sec)                     : </p></div><div class = col-md-3><span><input type="number" class="form-control" id="mass_rate_cold"       value="1.00" style="font-size:18px; width: 150px; display:inline;"></span></div></br></br>
 
+    <div class = col-md-6><p><span class="glyphicon glyphicon-share-alt"></span> Heat transferred to cold water (Q<sub>c</sub>)(W)                      : </p></div><div class = col-md-3><span><input type="number" class="form-control" id="heat_transfer_to_cold" value="1.00" style="font-size:18px; width: 150px; display:inline;"></span></div></br></br>
+
+    <!--
     <div class = col-md-6><p><span class="glyphicon glyphicon-share-alt"></span> Prandtl Number                     : </p></div><div class = col-md-3><span><input type="number" class="form-control" id="prandtl_number"       value="1.00" style="font-size:18px; width: 150px; display:inline;"></span></div></br></br>
 
     <div class = col-md-6><p><span class="glyphicon glyphicon-share-alt"></span> Reynolds Number                    : </p></div><div class = col-md-3><span><input type="number" class="form-control" id="reynolds_number"      value="1.00" style="font-size:18px; width: 150px; display:inline;"></span></div></br></br>
-
-    <div class = col-md-6><p><span class="glyphicon glyphicon-share-alt"></span> Heat transferred to cold water (Q<sub>c</sub>)(W)                      : </p></div><div class = col-md-3><span><input type="number" class="form-control" id="heat_transfer_to_cold" value="1.00" style="font-size:18px; width: 150px; display:inline;"></span></div></br></br>
+-->
 
     <div class = col-md-6><p><span class="glyphicon glyphicon-share-alt"></span> Heat loss from the exchanger = Q<sub>h</sub>-Q<sub>c</sub>(W)          : </p></div><div class = col-md-3><span><input type="number" class="form-control" id="heat_loss_exchanger"  value="1.00" style="font-size:18px; width: 150px; display:inline;"></span></div></br></br>
 
     <div class = col-md-6><p><span class="glyphicon glyphicon-share-alt"></span> Efficiency of the heat exchanger = (Q<sub>h</sub>/Q<sub>c</sub>)*100   : </p></div><div class = col-md-3><span><input type="number" class="form-control" id="efficiency_exchanger" value="1.00" style="font-size:18px; width: 150px; display:inline;"></span></div></br></br>
 
-    <div class = col-md-6><p><span class="glyphicon glyphicon-share-alt"></span> Log mean temperature difference (&#8710;T<sub>m</sub>) in &#8451;       : </p></div><div class = col-md-3><span><input type="number" class="form-control" id="log_temp_diff"        value="1.00" style="font-size:18px; width: 150px; display:inline;"></span></div></br></br>
+    <div class = col-md-6><p><span class="glyphicon glyphicon-share-alt"></span> Log mean temperature difference Parallel flow (&#8710;T<sub>m</sub>) in&#8451;       : </p></div><div class = col-md-3><span><input type="number" class="form-control" id="log_temp_diff_p"        value="1.00" style="font-size:18px; width: 150px; display:inline;"></span></div></br></br>
+    <div class = col-md-6><p><span class="glyphicon glyphicon-share-alt"></span> Log mean temperature difference Counter flow (&#8710;T<sub>m</sub>) in&#8451;       : </p></div><div class = col-md-3><span><input type="number" class="form-control" id="log_temp_diff_c"        value="1.00" style="font-size:18px; width: 150px; display:inline;"></span></div></br></br>
 
     <!-- <div class = col-md-6><p><span class="glyphicon glyphicon-share-alt"></span> Modified Log mean temperature difference (&#8710;T<sub>m</sub>) in&#8451; : </p></div><div class = col-md-3><span><input type="number" class="form-control" id="log_temp_diff" value="1.00" style="font-size:18px; width: 150px; display:inline;"></span></div></br></br> -->
 
-    <div class = col-md-6><p><span class="glyphicon glyphicon-share-alt"></span> Outer surface area for the inner tube                                  : </p></div><div class = col-md-3><span><input type="number" class="form-control" id="area_outer"           value="1.00" style="font-size:18px; width: 150px; display:inline;"></span></div></br></br>
+    <div class = col-md-6><p><span class="glyphicon glyphicon-share-alt"></span> Outer surface area of the inner tube                                  : </p></div><div class = col-md-3><span><input type="number" class="form-control" id="outer_surface_area_inner"           value="1.00" style="font-size:18px; width: 150px; display:inline;"></span></div></br></br>
 
-    <div class = col-md-6><p><span class="glyphicon glyphicon-share-alt"></span> Experimental Overall Heat Transfer Coefficient (U<sub>exp</sub>), (W/m<sup>2</sup>) &#8451;       : </p></div><div class = col-md-3><span><input type="number" class="form-control" id="exp_overall_heat_coeff"   value="1.00" style="font-size:18px; width: 150px; display:inline;"></span></div></div></br></br>
+    <div class = col-md-6><p><span class="glyphicon glyphicon-share-alt"></span> Overall heat transfer coefficient (U), (W/m<sup>2</sup>) &#8451;       : </p></div><div class = col-md-3><span><input type="number" class="form-control" id="overall_heat_coeff"   value="1.00" style="font-size:18px; width: 150px; display:inline;"></span></div></div></br></br>
+
+<!--
+    <div class = col-md-6><p><span class="glyphicon glyphicon-share-alt"></span> Inside Film Heat Transfer Coefficient : </p></div><div class = col-md-3><span><input type="number" class="form-control" id="inside_film_heat_coeff"   value="1.00" style="font-size:18px; width: 150px; display:inline;"></span></div></div></br></br>
+
+    <div class = col-md-6><p><span class="glyphicon glyphicon-share-alt"></span> Outside Film Heat Transfer Coefficient : </p></div><div class = col-md-3><span><input type="number" class="form-control" id="outside_film_heat_coeff"   value="1.00" style="font-size:18px; width: 150px; display:inline;"></span></div></div></br></br>
+-->
+
+    <div class = col-md-6><p><span class="glyphicon glyphicon-share-alt"></span> Theoretical Inside film heat transfer Coefficient h<sub>i</sub>                   : </p></div><div class = col-md-3><span><input type="number" class="form-control" id="theo_inside_film_heat_coeff" value="1.00" style="font-size:18px; width: 150px; display:inline;"></span></div></div></br></br>
 
 
-<div class = col-md-6><p><span class="glyphicon glyphicon-share-alt"></span> Use above chart to find the value of J<sub>H</sub> (Heat transfer factor) : </p></div><div class = col-md-3><span><input type="number" class="form-control" id="heat_transfer_factor" value="1.00" style="font-size:18px; width: 150px; display:inline;"></span></div></div>
+    <div class = col-md-6><p><span class="glyphicon glyphicon-share-alt"></span> Theoretical Outside film heat transfer Coefficient h<sub>o</sub>                   : </p></div><div class = col-md-3><span><input type="number" class="form-control" id="theo_outside_film_heat_coeff" value="1.00" style="font-size:18px; width: 150px; display:inline;"></span></div></div></br></br>
 
-<button style="display: inline" class="btn" type="button" onclick="calculations1()">Submit</button> <br><br>
+    <div class = col-md-6><p><span class="glyphicon glyphicon-share-alt"></span> Theoretical Overall heat transfer coefficient U<sub>th</sub>                   : </p></div><div class = col-md-3><span><input type="number" class="form-control" id="theo_overall_heat_transfer_coeff" value="1.00" style="font-size:18px; width: 150px; display:inline;"></span></div></div></br></br>
 
+    <div class = col-md-6><p><span class="glyphicon glyphicon-share-alt"></span> Capacity Ratio C                   : </p></div><div class = col-md-3><span><input type="number" class="form-control" id="capacity" value="1.00" style="font-size:18px; width: 150px; display:inline;"></span></div></div></br></br>
 
-<div class="row" style="align: center;">
-    <img class = "img-responsive shadow schematic center-block" style=";" align="middle" src="shell_and_tube/graph2.png">
+    <div class = col-md-6><p><span class="glyphicon glyphicon-share-alt"></span> Number of transfer unit for inner surface Counter-flow               : </p></div><div class = col-md-3><span><input type="number" class="form-control" id="number_transfer_unit_c" value="1.00" style="font-size:18px; width: 150px; display:inline;"></span></div></div></br></br>
+
+    <div class = col-md-6><p><span class="glyphicon glyphicon-share-alt"></span> Number of transfer unit for inner surface Parallel-flow               : </p></div><div class = col-md-3><span><input type="number" class="form-control" id="number_transfer_unit_p" value="1.00" style="font-size:18px; width: 150px; display:inline;"></span></div></div></br></br>
+
 </div>
-
-<br>
-
-<div class = col-md-6><p><span class="glyphicon glyphicon-share-alt"></span> Inner heat transfer coefficient (h<small>i</small>), (W/m<sup>2</sup>) &#8451;       : </p></div><div class = col-md-3><span><input type="number" class="form-control" id="inner_heat_coeff"   value="1.00" style="font-size:18px; width: 150px; display:inline;"></span></div></div></br></br><hr>
-
-    <div class = col-md-6><p><span class="glyphicon glyphicon-share-alt"></span> The outside film heat transfer coefficient h<sub>0</sub>                   : </p></div><div class = col-md-3><span><input type="number" class="form-control" id="outer_heat_coeff" value="1.00" style="font-size:18px; width: 150px; display:inline;"></span></div></div></br></br>
-
-    </div>
 </div>
 </body>
 
