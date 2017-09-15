@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+<head>
+    <title>IIT Roorkee Virtual Labs</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="Vlabs.css" type= "text/css" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="Vlabs.js"></script>
+    <script src="finned_tube_heat_exchanger.js"></script>
+    <style>
+        input {
+            size: 20px;}
+    </style>
+</head>
+
+
+<body background=b1.jpg>
+<div class="container-fluid" >
+    <div class="row">
+        <div class="col-md-8" style=";"><a href="https://www.iitr.ac.in/departments/CH/pages/People+Faculty.html">
+            <h1 ><small>DEPARTMENT OF CHEMICAL ENGINEERING, IIT ROORKEE</small></h1>
+        </a></div>
+        <!-- color of h1 . Not effective-->
+        <div class="col-md-3 hidden-xs hidden-sm" style="float:right;" ><a href="https://www.iitr.ac.in"><img src="logo1.gif" width="80px" height="80px" style="float:right;margin-right:50px" ></a></div>
+    </div></div>
+
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <a class="navbar-brand" href="index1.html">Virtual labs </a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+
+            <ul class="nav navbar-nav">
+                <li class=""><a href="index1.html#">Home</a></li>
+                <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Page 1 <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Page 1-1</a></li>
+                        <li><a href="#">Page 1-2</a></li>
+                        <li><a href="#">Page 1-3</a></li>
+                    </ul>
+                </li>
+                <li class="active"><a  href="#">Perform Experiment</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#"></span> Feedback</a></li>
+                <li><a href="#"></span>Contact Us</a></li>
+                <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+<div class="container-fluid">
+    <br class="row">
+
+    <p ><h2 style = "color:#a58eff;" class = "center"><strong>FINNED TUBE HEAT EXCHANGER</strong></h2></p>
+
+    <h3 style = "margin-left : 20px;"> PROPERTIES OF FLUID </h3>
+    <p>
+
+    <div class = col-md-6> I.  Specific heat of hot water, c<sub>ph</sub><smasll> (J/kg.K)</smasll>  = </div><div class = col-md-6><span><input type="number"  class="form-control" id="sh_water" value="4184" style="font-size:18px; width: 150px; display:inline;"></span></div></br></br>
+
+    <div class = col-md-6>II. Specific heat of Air, c<sub>ph</sub><small> (J/kg.K)</small>&nbsp; = </div><div class = col-md-6><span><input type="number" class="form-control" id="sh_air" value="1004" style="font-size:18px; width: 150px; display:inline;"></span></div>      </br></br>
+
+    <div class = col-md-6>III. Density of hot water, &#961;<sub>h</sub><small> (kg/m<sup>3</sup>)</small>&emsp; &emsp; &nbsp; = </div><div class = col-md-6><span><input type="number" class="form-control" id="d_water" value="1.00" style="font-size:18px; width: 150px; display:inline;"></span></div>      </br><br/>
+
+    <div class = col-md-6>IV. Dyamic Viscosity &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;  = </div><div class = col-md-6><span><input type="number" class="form-control" id="dynamic_viscosity" value="1.00" style="font-size:18px; width: 150px; display:inline;"></span></div>      </br><br/>
+
+    <div class = col-md-6>V. Thermal Conductivity  &emsp; &emsp; &emsp; &emsp; &emsp;  = </div><div class = col-md-6><span><input type="number" class="form-control" id="thermal_conductivity" value="1.00" style="font-size:18px; width: 150px; display:inline;"></span></div>      </br><br/>
+
+
+
+    <p style="margin-left:40px;"> <button class="btn" type="button" onclick="properties()">Submit Properties</button></p><br>
+
+    <h3 style = "margin-left : 20px;"> INPUT VALUES </h3>
+
+    <div class = col-md-6><p><span class="glyphicon glyphicon-share-alt"></span> Flow Rate Of Hot Water (LPH) : </p></div><div class = col-md-3><span><input type="number" class="form-control" id="flow_rate_water" value="1.00" style="font-size:18px; width: 150px; display:inline;"></span></div></br></br>
+
+    <div class = col-md-6><p><span class="glyphicon glyphicon-share-alt"></span> Manometer Height Difference : </p></div><div class = col-md-3><span><input type="number" class="form-control" id="manometer_diff" value="1.00" style="font-size:18px; width: 150px; display:inline;"></span></div></br></br>
+
+    <div class = col-md-6><p><span class="glyphicon glyphicon-share-alt"></span> Inlet Temperature (Water) : </p></div><div class = col-md-3><span><input type="number" class="form-control" id="inlet_temp_water" value="1.00" style="font-size:18px; width: 150px; display:inline;"></span></div></p></br></br>
+
+    <div class = col-md-6><p><span class="glyphicon glyphicon-share-alt"></span> Outlet Temperature (Water) : </p></div><div class = col-md-3><span><input type="number" class="form-control" id="outlet_temp_water" value="1.00" style="font-size:18px; width: 150px; display:inline;"></span></div></p></br></br>
+
+    <div class = col-md-6><p><span class="glyphicon glyphicon-share-alt"></span> Inlet Temperature (air) : </p></div><div class = col-md-3><span><input type="number" class="form-control" id="inlet_temp_air" value="1.00" style="font-size:18px; width: 150px; display:inline;"></span></div></p></br></br>
+
+    <div class = col-md-6><p><span class="glyphicon glyphicon-share-alt"></span> Outlet Temperature (air) : </p></div><div class = col-md-3><span><input type="number" class="form-control" id="outlet_temp_air" value="1.00" style="font-size:18px; width: 150px; display:inline;"></span></div></p></br></br>
+
+    <p style="margin-left:40px;"> <button class="btn" type="button" onclick="input_values() calculations()">Submit Values and Calculate</button></p>
+
+
+    <h3 style = "margin-left : 20px;"> CALCULATIONS </h3>
+
+
+    <div class = col-md-6><p><span class="glyphicon glyphicon-share-alt"></span> Density of air                                          : </p></div><div class = col-md-3><span><input type="number" class="form-control" id="d_air"       value="1.00" style="font-size:18px; width: 150px; display:inline;"></span></div></br></br>
+
+    <div class = col-md-6><p><span class="glyphicon glyphicon-share-alt"></span> Flow rate of air (Q<sub>a</sub> ), m<sup>3</sup>/hr                                           : </p></div><div class = col-md-3><span><input type="number" class="form-control" id="flow_rate_air"       value="1.00" style="font-size:18px; width: 150px; display:inline;"></span></div></br></br>
+
+    <div class = col-md-6><p><span class="glyphicon glyphicon-share-alt"></span> Mass rate of air  kg/hr                                           : </p></div><div class = col-md-3><span><input type="number" class="form-control" id="mass_rate_air"       value="1.00" style="font-size:18px; width: 150px; display:inline;"></span></div></br></br>
+
+    <div class = col-md-6><p><span class="glyphicon glyphicon-share-alt"></span> Mass rate of Water  kg/hr                                           : </p></div><div class = col-md-3><span><input type="number" class="form-control" id="mass_rate_water"       value="1.00" style="font-size:18px; width: 150px; display:inline;"></span></div></br></br>
+
+    <div class = col-md-6><p><span class="glyphicon glyphicon-share-alt"></span> Heat transferred from hot water (Q<sub>h</sub>)(W)                     : </p></div><div class = col-md-3><span><input type="number" class="form-control" id="heat_transfer_from_hot" value="1.00" style="font-size:18px; width: 150px; display:inline;"></span></div></p></br></br>
+
+    <div class = col-md-6><p><span class="glyphicon glyphicon-share-alt"></span> Heat transferred to Air (q<sub>a</sub>)(W)                      : </p></div><div class = col-md-3><span><input type="number" class="form-control" id="heat_transfer_to_air" value="1.00" style="font-size:18px; width: 150px; display:inline;"></span></div></br></br>
+
+    <div class = col-md-6><p><span class="glyphicon glyphicon-share-alt"></span> Average Heat Transfer Rate                                           : </p></div><div class = col-md-3><span><input type="number" class="form-control" id="avg_heat_transfer"       value="1.00" style="font-size:18px; width: 150px; display:inline;"></span></div></br></br>
+
+    <div class = col-md-6><p><span class="glyphicon glyphicon-share-alt"></span> Log mean temperature difference Counter (&#8710;T<sub>m</sub>) in&#8451;       : </p></div><div class = col-md-3><span><input type="number" class="form-control" id="log_mean_temp_diff_c"        value="1.00" style="font-size:18px; width: 150px; display:inline;"></span></div></br></br>
+
+    <div class = col-md-6><p><span class="glyphicon glyphicon-share-alt"></span> Log mean temperature difference Parallel(&#8710;T<sub>m</sub>) in&#8451;       : </p></div><div class = col-md-3><span><input type="number" class="form-control" id="log_mean_temp_diff_p"        value="1.00" style="font-size:18px; width: 150px; display:inline;"></span></div></br></br>
+
+    <div class = col-md-6><p><span class="glyphicon glyphicon-share-alt"></span> Inner surface area of the inner tube                                  : </p></div><div class = col-md-3><span><input type="number" class="form-control" id="surface_area_inner"           value="1.00" style="font-size:18px; width: 150px; display:inline;"></span></div></br></br>
+
+    <div class = col-md-6><p><span class="glyphicon glyphicon-share-alt"></span> Outer surface area of the inner tube                                  : </p></div><div class = col-md-3><span><input type="number" class="form-control" id="surface_area_outer"           value="1.00" style="font-size:18px; width: 150px; display:inline;"></span></div></br></br>
+
+    <div class = col-md-6><p><span class="glyphicon glyphicon-share-alt"></span> Inner Overall Heat Transfer Coefficient Counter : </p></div><div class = col-md-3><span><input type="number" class="form-control" id="inner_overall_heat_transfer_coeff_c"   value="1.00" style="font-size:18px; width: 150px; display:inline;"></span></div></div></br></br>
+
+    <div class = col-md-6><p><span class="glyphicon glyphicon-share-alt"></span> Outside Heat Transfer Coefficient Counter : </p></div><div class = col-md-3><span><input type="number" class="form-control" id="outside_heat_transfer_coeff_c"   value="1.00" style="font-size:18px; width: 150px; display:inline;"></span></div></div></br></br>
+
+    <div class = col-md-6><p><span class="glyphicon glyphicon-share-alt"></span> Inner Overall Heat Transfer Coefficient Parallel : </p></div><div class = col-md-3><span><input type="number" class="form-control" id="inner_overall_heat_transfer_coeff_p"   value="1.00" style="font-size:18px; width: 150px; display:inline;"></span></div></div></br></br>
+
+    <div class = col-md-6><p><span class="glyphicon glyphicon-share-alt"></span> Outside Heat Transfer Coefficient Parallel : </p></div><div class = col-md-3><span><input type="number" class="form-control" id="outside_heat_transfer_coeff_p"   value="1.00" style="font-size:18px; width: 150px; display:inline;"></span></div></div></br></br>
+
+    <div class = col-md-6><p><span class="glyphicon glyphicon-share-alt"></span> Capacity Ratio (C)                   : </p></div><div class = col-md-3><span><input type="number" class="form-control" id="capacity" value="1.00" style="font-size:18px; width: 150px; display:inline;"></span></div></div></br></br>
+
+    <div class = col-md-6><p><span class="glyphicon glyphicon-share-alt"></span> Prandtl Number                     : </p></div><div class = col-md-3><span><input type="number" class="form-control" id="prandtl_number"       value="1.00" style="font-size:18px; width: 150px; display:inline;"></span></div></br></br>
+
+    <div class = col-md-6><p><span class="glyphicon glyphicon-share-alt"></span> Reynolds Number                    : </p></div><div class = col-md-3><span><input type="number" class="form-control" id="reynolds_number"      value="1.00" style="font-size:18px; width: 150px; display:inline;"></span></div></br></br>
+
+    <div class = col-md-6><p><span class="glyphicon glyphicon-share-alt"></span> Inner Heat Transfer Coefficient Theo : </p></div><div class = col-md-3><span><input type="number" class="form-control" id="inner_heat_transfer_coeff_theo"   value="1.00" style="font-size:18px; width: 150px; display:inline;"></span></div></div></br></br>
+
+    <div class = col-md-6><p><span class="glyphicon glyphicon-share-alt"></span> Outer Heat Transfer Coefficient Theo : </p></div><div class = col-md-3><span><input type="number" class="form-control" id="outer_heat_transfer_coeff_theo"   value="1.00" style="font-size:18px; width: 150px; display:inline;"></span></div></div></br></br>
+
+    <div class = col-md-6><p><span class="glyphicon glyphicon-share-alt"></span> Overall Heat Transfer Coefficient Theo : </p></div><div class = col-md-3><span><input type="number" class="form-control" id="overall_heat_transfer_coeff_theo"   value="1.00" style="font-size:18px; width: 150px; display:inline;"></span></div></div></br></br>
+
+
+</div>
+</div>
+</body>
+
+
+</html>
+
